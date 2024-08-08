@@ -1,9 +1,10 @@
+# .github/workflows/test.yml
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -11,6 +12,6 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'  # Asegúrate de usar una versión de Node.js compatible
     - run: npm install
     - run: npm test
